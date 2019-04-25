@@ -1,0 +1,57 @@
+
+STORED PROCS :-
+
+It is a bundle of SQL Statements that are compiled and stored in server side for future use. "COMPILE ONCE, USE MANY TIMES".
+The PLAN is generated and stored when Compiled and called for the first time. This PLAN is used again & again.
+It is a DATABASE OBJECT.
+
+STORED PROCS LINKS :-
+
+http://ibmmainframelearning.blogspot.com/2015/03/developing-cobol-stored-procedures.html   ==> IMPORTANT LINK ON SP with EXAMPLE.
+https://www.ibm.com/support/knowledgecenter/en/SSEPEK_11.0.0/apsg/src/tpc/db2z_xmpcobolstoredprocedure.html  ==> ANOTHER EXAMPLE.
+
+https://mainframeqns.wordpress.com/mainframe-interview-questions-part-1/  ==> QUESTION AND ANSWERS
+
+http://www.interviewquestionspdf.com/2016/03/top-18-sql-stored-procedure-interview.html
+
+http://www.geekinterview.com/Interview-Questions/Database/Stored-Procedures
+
+So once a stored procedure is defined,Next step is to Create its COBOL source code.
+
+
+1) How to execute the stored procedures.(process involved).
+Write a stored procedure program that can execute the necessary SQL statements. If your stored procedure is a COBOL program, you must compile it with the option NODYNAM.
+
+Write the application program used to CALL the procedure.
+
+Bind a package for the stored procedure. Stored procedures require only a package at the server. You do not need to bind a plan.
+
+Bind a Plan for the calling application Program.
+
+Define the stored procedure in the catalog table SYSIBM.SYSPROCEDURES.
+
+Use GRANT EXECUTE to authorize the appropriate users to use the stored procedure.
+
+
+2) CREATE PROCEDURE :-
+
+This CREATE PROCEDURE statement defines the stored procedure to DB2: 
+
+CREATE PROCEDURE B(IN V1 INTEGER, OUT V2 CHAR(9)) 
+LANGUAGE C 
+DETERMINISTIC 
+NO SQL 
+EXTERNAL NAME SUMMOD 
+COLLID SUMCOLL 
+ASUTIME LIMIT 900 
+PARAMETER STYLE GENERAL WITH NULLS 
+STAY RESIDENT NO 
+RUN OPTIONS 'MSGFILE(OUTFILE),RPTSTG(ON),RPTOPTS(ON)'
+WLM ENVIRONMENT PAYROLL 
+PROGRAM TYPE MAIN 
+SECURITY DB2 
+DYNAMIC RESULT SETS 10 
+COMMIT ON RETURN NO;
+
+
+3) CALL STOREDPROC (:
